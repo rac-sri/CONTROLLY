@@ -1,0 +1,2 @@
+{"meta":{},"level":"\u001b[32minfo\u001b[39m","message":"GET /webhook?hub.verify_token=<YOUR_VERIFY_TOKEN>&hub.challenge=CHALLENGE_ACCEPTED&hub.mode=subscribe 200 8ms"}
+{"meta":{},"level":"\u001b[32minfo\u001b[39m","message":"POST /webhook 500 13ms"}

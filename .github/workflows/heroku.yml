@@ -12,12 +12,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "YOUR APP's NAME" #Must be unique in Heroku
-          heroku_email: "YOUR EMAIL"
-          buildpack: "SOME BUILDPACK" #OPTIONAL
-          branch: "YOUR_BRANCH" #OPTIONAL and DEFAULT - 'HEAD' (a.k.a your current branch)
+          heroku_api_key: "753aab34-9d7c-4854-99b6-732401cb96cd"
+          heroku_app_name: "controlly" #Must be unique in Heroku
+          heroku_email: "rac.sri25@gmail.com"
+          # buildpack: "SOME BUILDPACK" #OPTIONAL
+          # branch: "YOUR_BRANCH" #OPTIONAL and DEFAULT - 'HEAD' (a.k.a your current branch)
           dontuseforce: false #OPTIONAL and DEFAULT - false
-          usedocker: false #OPTIONAL and DEFAULT - false
-          appdir: "" #OPTIONAL and DEFAULT - "". This is useful if the api you're deploying is in a subfolder
-          docker_heroku_process_type: "" #OPTIONAL and DEFAULT - "web"
+          # usedocker: false #OPTIONAL and DEFAULT - false
+          # appdir: "" #OPTIONAL and DEFAULT - "". This is useful if the api you're deploying is in a subfolder
+          # docker_heroku_process_type: "" #OPTIONAL and DEFAULT - "web"
