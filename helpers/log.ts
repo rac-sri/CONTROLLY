@@ -3,8 +3,11 @@ import winston from "winston";
 const logger = winston.createLogger({
   format: winston.format.json(),
   transports: [
-    new winston.transports.File({ filename: "error.log", level: "error" }),
-    new winston.transports.File({ filename: "warning.log", level: "warning" }),
+    new winston.transports.File({ filename: "log/error.log", level: "error" }),
+    new winston.transports.File({
+      filename: "log/warning.log",
+      level: "warning",
+    }),
   ],
 });
 
