@@ -1,6 +1,6 @@
 import handleMessage from "../messengerApi/handleMesseges.ts";
 import handlePostback from "../messengerApi/handlePostback.ts";
-import { logInfo } from "../helpers/log";
+import { logInfo } from "../helpers/log.ts";
 
 export default (req, res) => {
   let body = req.body;
