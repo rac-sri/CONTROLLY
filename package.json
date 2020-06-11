@@ -17,6 +17,8 @@
   "author": "Facebook",
   "license": "ISC",
   "dependencies": {
+    "@openzeppelin/contracts": "^3.0.2",
+    "@truffle/hdwallet-provider": "^1.0.35",
     "babel-cli": "^6.23.0",
     "babel-plugin-module-resolver": "^2.5.0",
     "babel-plugin-react-transform": "^2.0.2",
@@ -49,6 +51,7 @@
     "style-loader": "^0.13.1",
     "typescript": "^3.9.5",
     "uglify-loader": "^1.4.0",
+    "web3": "^1.2.9",
     "webpack": "^3.6.0",
     "weui": "^1.1.1",
     "whatwg-fetch": "^2.0.2",

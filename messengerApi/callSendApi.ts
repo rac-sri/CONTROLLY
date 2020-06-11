@@ -1,5 +1,6 @@
 import request from "request";
 import { PAGE_ACCESS_TOKEN } from "../helpers/constants.ts";
+import { logError, logInfo } from "../helpers/log.ts";
 
 function callSendAPI(sender_psid, response) {
   let request_body = {
@@ -19,8 +20,10 @@ function callSendAPI(sender_psid, response) {
     },
     (err, res, body) => {
       if (!err) {
+        logInfo("message sent");
         console.log("message sent!");
       } else {
+        logError("Unable to send Message" + err);
         console.error("Unable to send message:" + err);
       }
     }
