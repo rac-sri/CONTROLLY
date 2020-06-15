@@ -1,5 +1,5 @@
-const Controlly = artifacts.require("Controlly");
+const Awarding = artifacts.require("Awarding");
 
 module.exports = function (deployer) {
-  deployer.deploy(Controlly);
+  deployer.deploy(Awarding);
 };
