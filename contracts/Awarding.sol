@@ -1,6 +1,8 @@
 // pragma solidity >=0.5.10 <0.7.0;
 pragma solidity 0.6.2;
 
+//import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol";
+
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract Awarding is ERC721 {
@@ -28,7 +30,10 @@ contract Awarding is ERC721 {
         _;
     }
 
-    function Mint(address reciever, string memory news) public ownership {
+    function Mint(address reciever, string memory news)
+        internal
+        returns (string memory str)
+    {
         // require(!Text[news],"Information already recorded.");
 
         uint256 id = Token.length;
@@ -36,26 +41,37 @@ contract Awarding is ERC721 {
         _mint(reciever, id);
         Text[news] = true;
         emit Success(reciever, id);
+        return "success";
     }
 
     function AwardUser(
         address reciever,
         string memory text,
-        uint256 tokenId
-    ) public ownership {
-        require(tokenId > Token.length, "Invalid TokenId");
-        if (tokenId < 0) Mint(reciever, text);
-        else Award(reciever, text, tokenId);
+        int256 tokenId
+    ) public ownership returns (string memory result) {
+        require(tokenId < int256(Token.length), "Invalid TokenId");
+        if (tokenId < 0) {
+            string memory returnValue = Mint(reciever, text);
+            return returnValue;
+        } else {
+            string memory returnValue = Award(reciever, text, uint256(tokenId));
+            return returnValue;
+        }
     }
 
     function Award(
         address reciever,
         string memory text,
         uint256 tokenId
-    ) private {
+    ) private returns (string memory str) {
         Con storage token = Token[tokenId];
         Text[text] = true;
         token.level += 1;
         emit Awarded(reciever, token.level, tokenId);
+        return "success";
+    }
+
+    function getOnwer() public view returns (address token) {
+        return tokenOwner;
     }
 }

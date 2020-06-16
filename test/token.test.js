@@ -1,5 +1,5 @@
-const {assert} = require("chai");
-const {add} = require("lodash");
+// const {assert} = require("chai");
+// const {add} = require("lodash");
 
 const token = artifacts.require("./Awarding.sol");
 
@@ -33,8 +33,8 @@ contract("Awarding", (accounts) => {
 
   describe("Minting", async () => {
     it("creates a new token", async () => {
-      const owner = await contract.tokenOwner();
-      assert.equal("0x8E9733bAfeFaCE904DBa87eaD485469a67B1914F", owner);
+      const owner = await contract.getOwner();
+      assert.equal(accounts[0], owner);
       const result = await contract.AwardUser(
         "0x96b0103df6cb146718f353ce9c037dbd57fdcbbe",
         "testing",

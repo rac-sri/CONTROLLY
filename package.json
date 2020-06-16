@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "node bin/www",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

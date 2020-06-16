@@ -1,30 +1,31 @@
 import {contract, accounts, web3} from "./web3";
+import {add} from "winston";
 
 let tokenCount: number;
 
-export const mint = (message: string) => {
+export const mint = (message: string, address: string) => {
   contract.methods
-    .mint(message)
+    .AwardUser(address, message, -1)
     .send({from: accounts[0]})
     .once("reciept", (res: any) => {
-      console.log(res);
+      return res;
     });
 };
 
-export const Awarduser = (message: string) => {
+export const Awarduser = (message: string, address: string) => {
   contract.method
-    .balanceOf(web3.eth.defaultAccount)
+    .balanceOf(address)
     .call()
     .then((res: number) => {
       tokenCount = res;
       for (let i = 0; i < tokenCount; i++) {
         contract.methods
-          .tokenOfOwnerByIndex(web3.eth.defaultAccount, i)
+          .tokenOfOwnerByIndex(address, i)
           .call()
           .then((res) => {
             contract.methods
-              .AwardUser(web3.eth.defaultAccount, message, res)
-              .send({from: web3.eth.defaultAccount})
+              .AwardUser(address, message, res)
+              .send({from: accounts[0]})
               .then((reciept) => {
                 console.log(reciept);
               });
