@@ -4,53 +4,58 @@ pragma solidity 0.6.2;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract Awarding is ERC721 {
-    
-    uint value;
+    uint256 value;
     address tokenOwner;
-    
-    constructor() ERC721("Con","CON")  public {
+
+    constructor() public ERC721("Con", "CON") {
         // value = msg.value;
         tokenOwner = msg.sender;
     }
 
     mapping(string => bool) Text;
     Con[] public Token;
-    
-    struct Con{
+
+    struct Con {
         uint256 id;
         uint256 level;
     }
 
-    event Success(address reciever , uint lenght);
-    event Awarded(address revieber , uint level , uint tokenId);
-    
+    event Success(address reciever, uint256 lenght);
+    event Awarded(address revieber, uint256 level, uint256 tokenId);
+
     modifier ownership {
-           require(msg.sender != tokenOwner,"permission not granted");
-           _;
+        require(msg.sender == tokenOwner, "permission not granted");
+        _;
     }
-    
-    function Mint( address reciever,string memory news) public ownership {
+
+    function Mint(address reciever, string memory news) public ownership {
         // require(!Text[news],"Information already recorded.");
 
-        uint id = Token.length;
-        Token.push(Con(id,0));
-        _mint(reciever,id);
+        uint256 id = Token.length;
+        Token.push(Con(id, 0));
+        _mint(reciever, id);
         Text[news] = true;
-        emit Success(reciever,id);
-    }
-    
-    function AwardUser(address reciever,string memory text,uint256 tokenId) public ownership {
-            require(tokenId <= Token.length,"Invalid TokenId");
-            if(tokenId < 0)
-                Mint(reciever,text);
-            else    
-                Award(reciever,text,tokenId);
+        emit Success(reciever, id);
     }
 
-    function Award(address reciever,string memory text,uint256 tokenId) private {
+    function AwardUser(
+        address reciever,
+        string memory text,
+        uint256 tokenId
+    ) public ownership {
+        require(tokenId > Token.length, "Invalid TokenId");
+        if (tokenId < 0) Mint(reciever, text);
+        else Award(reciever, text, tokenId);
+    }
+
+    function Award(
+        address reciever,
+        string memory text,
+        uint256 tokenId
+    ) private {
         Con storage token = Token[tokenId];
         Text[text] = true;
         token.level += 1;
-        emit Awarded(reciever,token.level,tokenId);
+        emit Awarded(reciever, token.level, tokenId);
     }
 }

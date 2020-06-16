@@ -3,7 +3,7 @@ import walletProvider from "@truffle/hdwallet-provider";
 import Controlly from "../build/contracts/Controlly.json";
 
 const provider = new walletProvider(
-  "call glow acoustic vintage front ring trade assist shuffle mimic volume reject",
+  "call glow acoustic vintage front ring trade assist shuffle mimic volume reject", // this is where the mnemonic code of the deployer goes. The one provied is just a testing code.
   "https://rinkeby.infura.io/v3/3dc8b2e3489c4260904f45a4e74a56dc"
 );
 
@@ -33,11 +33,4 @@ const loadBlockchainData = async () => {
 
 loadBlockchainData();
 
-export const mint = (message: string) => {
-  contract.methods
-    .mint(message)
-    .send({ from: accounts[0] })
-    .once("reciept", (res: any) => {
-      console.log(res);
-    });
-};
+export {contract, totalSupply, networkData, networkId, accounts, web3};

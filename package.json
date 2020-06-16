@@ -29,6 +29,7 @@
     "babel-register": "^6.23.0",
     "babili-webpack-plugin": "^0.0.10",
     "body-parser": "^1.16.1",
+    "chai-as-promised": "^7.1.1",
     "cookie-parser": "~1.4.3",
     "css-loader": "^0.26.1",
     "debug": "~2.2.0",
