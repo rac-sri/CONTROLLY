@@ -1,6 +1,6 @@
 import request from "request";
-import { PAGE_ACCESS_TOKEN } from "../helpers/constants.ts";
-import { logError, logInfo } from "../helpers/log.ts";
+import {PAGE_ACCESS_TOKEN} from "../helpers/constants";
+import {logError, logInfo} from "../helpers/log";
 
 function callSendAPI(sender_psid, response) {
   let request_body = {
@@ -14,7 +14,7 @@ function callSendAPI(sender_psid, response) {
   request(
     {
       uri: "https://graph.facebook.com/v2.6/me/messages",
-      qs: { access_token: PAGE_ACCESS_TOKEN },
+      qs: {access_token: PAGE_ACCESS_TOKEN},
       method: "POST",
       json: request_body,
     },

@@ -1,6 +1,6 @@
 "use strict";
 
-import router from "./routes/routes.ts";
+import router from "./routes/routes";
 
 const express = require("express"),
   body_parser = require("body-parser"),
@@ -11,7 +11,7 @@ const express = require("express"),
 //middlewares
 app.use(body_parser.json());
 app.use(helmet());
-app.use(log());
+// app.use(log());
 
 //routes
 app.use("/webhook", router);

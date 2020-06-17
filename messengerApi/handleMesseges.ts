@@ -1,24 +1,43 @@
-import callSendAPI from "./callSendApi.ts";
-import resolver from "../Functionalities/resolveMessage.ts";
+import callSendAPI from "./callSendApi";
+import resolver from "../Functionalities/resolveMessage";
+import {checkAccount} from "../ethereum/MintingAndAwarding";
 
-function handleMessage(sender_psid, received_message) {
-  let response;
+const obj = {};
+
+// type res= string;
+
+async function handleMessage(sender_psid, received_message) {
+  let response: any;
 
   if (received_message.text) {
     /* Todo : 
       1. a function to check if the message got potencial 🔊 
       2. bases on (1) execute blockchain token transfer from the account provided next by the user.
       */
-
     const resolved: Boolean = resolver(received_message.text);
     if (!resolved) {
       response = `Sorry doesn't seems to be a problemtic text.`;
       callSendAPI(sender_psid, response);
+      return;
     }
 
-    response = {
-      text: `You sent the message: "${received_message.text}". Now send me an attachment!`,
-    };
+    let value = obj[sender_psid];
+
+    if (value) {
+      const message: string = received_message.text.trim();
+      const match = message.match(/address/) && message.startsWith("address");
+      console.log(match);
+      if (match) {
+        console.log(message);
+        const address = message.substr(6);
+        console.log(await checkAccount(address));
+      }
+    } else {
+      response = {
+        text: `You sent the message: "${received_message.text}". Now send me an attachment!`,
+      };
+      obj[sender_psid] = true;
+    }
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;

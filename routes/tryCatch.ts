@@ -1,4 +1,4 @@
-import { logError } from "../helpers/log.ts";
+import {logError} from "../helpers/log";
 
 const tryCatch = (handler) => {
   return async (req, res, next) => {

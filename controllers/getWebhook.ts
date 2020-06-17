@@ -1,4 +1,4 @@
-import { logInfo } from "../helpers/log.ts";
+import {logInfo} from "../helpers/log";
 
 export default (req, res) => {
   const VERIFY_TOKEN = "<YOUR_VERIFY_TOKEN>";

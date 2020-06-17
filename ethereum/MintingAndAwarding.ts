@@ -3,6 +3,11 @@ import {add} from "winston";
 
 let tokenCount: number;
 
+export const checkAccount = async (address: string): Promise<any> => {
+  const exist = await contract.methods.balanceOf(address).call();
+  return exist === 0 ? false : true;
+};
+
 export const mint = (message: string, address: string) => {
   contract.methods
     .AwardUser(address, message, -1)
