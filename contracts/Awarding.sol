@@ -74,4 +74,8 @@ contract Awarding is ERC721 {
     function getOnwer() public view returns (address token) {
         return tokenOwner;
     }
+
+    function checkText(string memory text) public view returns (bool truthy) {
+        return Text[text];
+    }
 }

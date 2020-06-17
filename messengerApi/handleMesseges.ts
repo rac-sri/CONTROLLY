@@ -1,17 +1,21 @@
-import callSendAPI from "./callSendApi.ts";
+import callSendAPI from "./callSendApi";
+import resolver from "../Functionalities/resolveMessage";
 
 function handleMessage(sender_psid, received_message) {
   let response;
 
-  // Checks if the message contains text
   if (received_message.text) {
     /* Todo : 
       1. a function to check if the message got potencial 🔊 
       2. bases on (1) execute blockchain token transfer from the account provided next by the user.
       */
 
-    // Create the payload for a basic text message, which
-    // will be added to the body of our request to the Send API
+    const resolved: Boolean = resolver(received_message.text);
+    if (!resolved) {
+      response = `Sorry doesn't seems to be a problemtic text.`;
+      callSendAPI(sender_psid, response);
+    }
+
     response = {
       text: `You sent the message: "${received_message.text}". Now send me an attachment!`,
     };
