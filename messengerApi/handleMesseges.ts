@@ -1,5 +1,5 @@
-import callSendAPI from "./callSendApi";
-import resolver from "../Functionalities/resolveMessage";
+import callSendAPI from "./callSendApi.ts";
+import resolver from "../Functionalities/resolveMessage.ts";
 
 function handleMessage(sender_psid, received_message) {
   let response;
