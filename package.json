@@ -52,6 +52,7 @@
     "serve-favicon": "~2.3.0",
     "style-loader": "^0.13.1",
     "ts-node": "^8.10.2",
+    "truffle": "*",
     "typescript": "^3.9.5",
     "uglify-loader": "^1.4.0",
     "web3": "^1.2.9",
