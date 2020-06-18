@@ -31,7 +31,7 @@ export const Awarduser = (
   contract: any,
   accounts
 ) => {
-  contract.method
+  contract.methods
     .balanceOf(address)
     .call()
     .then((res: number) => {

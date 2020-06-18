@@ -1,6 +1,6 @@
 import Web3 from "web3";
 import walletProvider from "@truffle/hdwallet-provider";
-import Controlly from "../build/contracts/Awarding.json";
+import Awarding from "../build/contracts/Awarding.json";
 
 const provider = new walletProvider(
   "call glow acoustic vintage front ring trade assist shuffle mimic volume reject", // this is where the mnemonic code of the deployer goes. The one provied is just a testing code.
@@ -20,11 +20,11 @@ const loadBlockchainData = async () => {
 
   //check the network we are on and extract that network instance
   networkId = await web3.eth.net.getId();
-  networkData = Controlly.networks[networkId];
+  networkData = Awarding.networks[networkId];
 
   //
   if (networkData) {
-    const abi: any = Controlly.abi;
+    const abi: any = Awarding.abi;
     const address = networkData.address;
     contract = await new web3.eth.Contract(abi, address);
     totalSupply = await contract.methods.totalSupply().call();
