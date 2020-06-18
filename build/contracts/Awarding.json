@@ -6231,12 +6231,12 @@
         }
       },
       "links": {},
-      "address": "0x53544145875ed2b4D316C79A63ABb772A5cEA4Bf",
-      "transactionHash": "0xecfdcd71bc3bab91d025d409d1bb0c5db399ab17ef5478be89a8325ef82fa078"
+      "address": "0x892da0bAec9263D47B46F550bAf5EC54cBF757ad",
+      "transactionHash": "0xc2540258ca5a13cd3698d49419b9e90f04bb131cbd742bfc501a49d07ef42d0c"
     }
   },
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-06-17T21:17:54.956Z",
+  "updatedAt": "2020-06-18T11:44:25.049Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {

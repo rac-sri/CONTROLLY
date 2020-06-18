@@ -1,12 +1,16 @@
 import callSendAPI from "./callSendApi";
 import resolver from "../Functionalities/resolveMessage";
-import {checkAccount} from "../ethereum/MintingAndAwarding";
+import {checkAccount, mint} from "../ethereum/MintingAndAwarding";
+import loadBlockchainData from "../ethereum/web3";
 
 const obj = {};
 
-// type res= string;
+async function handleMessage(
+  sender_psid: string,
+  received_message: any
+): Promise<any> {
+  const {contract, totalSupply, accounts} = await loadBlockchainData();
 
-async function handleMessage(sender_psid, received_message) {
   let response: any;
 
   if (received_message.text) {
@@ -16,7 +20,8 @@ async function handleMessage(sender_psid, received_message) {
       */
     const resolved: Boolean = resolver(received_message.text);
     if (!resolved) {
-      response = `Sorry doesn't seems to be a problemtic text.`;
+      console.log("not resolved");
+      response = {text: `Sorry doesn't seems to be a problemtic text.`};
       callSendAPI(sender_psid, response);
       return;
     }
@@ -26,17 +31,20 @@ async function handleMessage(sender_psid, received_message) {
     if (value) {
       const message: string = received_message.text.trim();
       const match = message.match(/address/) && message.startsWith("address");
-      console.log(match);
       if (match) {
-        console.log(message);
-        const address = message.substr(6);
-        console.log(await checkAccount(address));
+        const address = message.substr(7).trim();
+        const accountAvailaible = await checkAccount(address, contract);
+        if (!accountAvailaible) {
+          mint(obj[sender_psid].text, address, contract, accounts).then((res) =>
+            console.log(res)
+          );
+        }
       }
     } else {
       response = {
-        text: `You sent the message: "${received_message.text}". Now send me an attachment!`,
+        text: `Hurray!!!. You are eligible for a NFT token. Please send me your public wallet address to claim your award.\naddress <Your_Public_Key>`,
       };
-      obj[sender_psid] = true;
+      obj[sender_psid] = {text: received_message.text};
     }
   } else if (received_message.attachments) {
     // Get the URL of the message attachment

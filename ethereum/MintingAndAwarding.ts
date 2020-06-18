@@ -1,14 +1,22 @@
-import {contract, accounts, web3} from "./web3";
 import {add} from "winston";
 
 let tokenCount: number;
 
-export const checkAccount = async (address: string): Promise<any> => {
+export const checkAccount = async (
+  address: string,
+  contract: any
+): Promise<any> => {
   const exist = await contract.methods.balanceOf(address).call();
-  return exist === 0 ? false : true;
+  console.log(typeof exist);
+  return exist === "0" ? false : true;
 };
 
-export const mint = (message: string, address: string) => {
+export const mint = async (
+  message: string,
+  address: string,
+  contract: any,
+  accounts
+): Promise<any> => {
   contract.methods
     .AwardUser(address, message, -1)
     .send({from: accounts[0]})
@@ -17,7 +25,12 @@ export const mint = (message: string, address: string) => {
     });
 };
 
-export const Awarduser = (message: string, address: string) => {
+export const Awarduser = (
+  message: string,
+  address: string,
+  contract: any,
+  accounts
+) => {
   contract.method
     .balanceOf(address)
     .call()
