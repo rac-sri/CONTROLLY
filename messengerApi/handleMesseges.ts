@@ -14,12 +14,9 @@ async function handleMessage(
   let response: any;
 
   if (received_message.text) {
-    /* Todo : 
-      1. a function to check if the message got potencial 🔊 
-      */
-    const resolved: Boolean = resolver(received_message.text);
+    const resolved: Boolean = await resolver(received_message.text);
+
     if (!resolved) {
-      console.log("not resolved");
       response = {text: `Sorry doesn't seems to be a problemtic text.`};
       callSendAPI(sender_psid, response);
       return;
@@ -48,43 +45,12 @@ async function handleMessage(
           callSendAPI(sender_psid, response);
         }
       }
+    } else {
+      response = {
+        text: `That's Interesting 🤯 . You are eligible for a NFT token, Congratulations!!. Please send me your public wallet address to claim your award.\naddress <Your_Public_Key>`,
+      };
+      obj[sender_psid] = {text: received_message.text};
     }
-    //else {
-    //     response = {
-    //       text: `Hurray!!!. You are eligible for a NFT token. Please send me your public wallet address to claim your award.\naddress <Your_Public_Key>`,
-    //     };
-    //     obj[sender_psid] = {text: received_message.text};
-    //   }
-    // } else if (received_message.attachments) {
-    //   // Get the URL of the message attachment
-    //   let attachment_url = received_message.attachments[0].payload.url;
-    //   response = {
-    //     attachment: {
-    //       type: "template",
-    //       payload: {
-    //         template_type: "generic",
-    //         elements: [
-    //           {
-    //             title: "Is this the right picture?",
-    //             subtitle: "Tap a button to answer.",
-    //             image_url: attachment_url,
-    //             buttons: [
-    //               {
-    //                 type: "postback",
-    //                 title: "Yes!",
-    //                 payload: "yes",
-    //               },
-    //               {
-    //                 type: "postback",
-    //                 title: "No!",
-    //                 payload: "no",
-    //               },
-    //             ],
-    //           },
-    //         ],
-    //       },
-    //     },
-    // };
   }
 
   // Send the response message
