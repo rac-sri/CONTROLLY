@@ -7,10 +7,11 @@
     "node": "v10.19.0"
   },
   "scripts": {
-    "start": "ts-node bin/www",
+    "start": "ts-node bin/www.ts",
     "tsc": "tsc",
     "test": "mocha",
-    "expose": "ngrok http 4000"
+    "expose": "ngrok http 4000",
+    "pm2":"pm2 start ts-node ./server/index.ts"
   },
   "repository": {
     "type": "git",
