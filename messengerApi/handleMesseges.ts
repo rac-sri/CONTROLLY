@@ -12,13 +12,13 @@ async function handleMessage(
   const {contract, totalSupply, accounts} = await loadBlockchainData();
 
   let response: any;
-  console.log("in handle message");
+
   if (received_message.text) {
     const resolved: Boolean = await resolver(received_message.text);
 
     let value = obj[sender_psid];
 
-    if (!resolved && !!value.text) {
+    if (!resolved && value == undefined) {
       response = {text: `Sorry doesn't seems to be a problemtic text.`};
       callSendAPI(sender_psid, response);
       return;
