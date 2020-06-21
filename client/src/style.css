@@ -1,5 +1,14 @@
- {
-    body {
-        background-color: bisque;
-    }
+body {
+    background-color: bisque;
+}
+.list {
+    border-width: thick;
+    border-style: solid;
+    border-color: brown;
+    padding: 16px;
+    background-color: white;
+    margin: 10px;
+}
+#filled-adornment-amount {
+    width: 78vw;
 }

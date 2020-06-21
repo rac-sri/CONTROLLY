@@ -34,6 +34,8 @@
     },
     "homepage": "https://github.com/rachit2501/EOSIS-Hack#readme",
     "dependencies": {
+        "@material-ui/core": "^4.10.2",
+        "@material-ui/icons": "^4.9.1",
         "lint-staged": "^10.2.2",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",

@@ -3,7 +3,7 @@ const plugins = require("./plugins/index");
 const webpack = require("webpack");
 
 module.exports = {
-    entry: ["./src/index.js"],
+    entry: ["./src/index.tsx"],
     module: {
         rules: [
             loaders.svgLoader,
