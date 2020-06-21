@@ -4,6 +4,7 @@ import {logInfo} from "../helpers/log";
 
 export default (req, res) => {
   let body = req.body;
+  res.status(200).send("EVENT_RECEIVED");
   // Check the webhook event is from a Page subscription
   if (body.object === "page") {
     body.entry.forEach(function (entry) {

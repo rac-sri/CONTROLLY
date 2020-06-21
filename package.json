@@ -11,7 +11,7 @@
     "tsc": "tsc",
     "test": "mocha",
     "expose": "ngrok http 4000",
-    "pm2":"pm2 start ts-node ./server/index.ts"
+    "pm2": "NODE_ENV=production pm2 start ts-node ./bin/www.ts"
   },
   "repository": {
     "type": "git",
@@ -45,6 +45,7 @@
     "helmet": "^3.22.0",
     "jade": "~1.11.0",
     "lodash": "^4.17.13",
+    "mongoose": "^5.9.19",
     "morgan": "~1.9.1",
     "nodemon": "^1.11.0",
     "react": "^15.4.2",
