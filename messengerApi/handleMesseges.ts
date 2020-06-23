@@ -1,6 +1,11 @@
 import callSendAPI from "./callSendApi";
 import resolver from "../Functionalities/resolveMessage";
-import {checkAccount, mint, Awarduser} from "../ethereum/MintingAndAwarding";
+import {
+  checkAccount,
+  mint,
+  Awarduser,
+  FindText,
+} from "../ethereum/MintingAndAwarding";
 import loadBlockchainData from "../ethereum/web3";
 
 const obj = {};
@@ -10,8 +15,20 @@ async function handleMessage(
   received_message: any
 ): Promise<any> {
   const {contract, totalSupply, accounts} = await loadBlockchainData();
-
   let response: any;
+
+  const parsingStage1 = received_message.text
+    .trim()
+    .toLowerCase()
+    .startsWith("check");
+  if (parsingStage1) {
+    const message = received_message.text.trim().substr(5);
+    const result = await FindText(message, contract);
+    if (result)
+      callSendAPI(sender_psid, {text: "Yes, this is potentially dangerous"});
+    else callSendAPI(sender_psid, {text: "Nope, this is not known to me."});
+    return;
+  }
 
   if (received_message.text) {
     const resolved: Boolean = await resolver(received_message.text);
@@ -26,7 +43,7 @@ async function handleMessage(
       const message: string = received_message.text.trim();
       const match = message.match(/address/) && message.startsWith("address");
       if (match) {
-        const address = message.substr(7).trim();
+        const address = message.trim().substr(7).trim();
         const accountAvailaible = await checkAccount(address, contract);
 
         if (!accountAvailaible) {
@@ -38,8 +55,9 @@ async function handleMessage(
             callSendAPI(sender_psid, response);
             obj[sender_psid] = undefined;
           } catch (e) {
+            console.log(e);
             response = {
-              text: `Something doesn't seems right.`,
+              text: `Something doesn't seems right. Try again later.`,
             };
             callSendAPI(sender_psid, response);
           }
@@ -48,10 +66,11 @@ async function handleMessage(
             response = {
               text: `Hurray!!!. Your CON token just leveled up. Congratulation!!!!.\n. "0x80A8dB17572ceFE024b4802B462a9B4257230C91" is the address of the contract that you can use to view your token in your wallet.`,
             };
-            await Awarduser(response, address, contract, accounts);
+            await Awarduser(obj[sender_psid].text, address, contract, accounts);
             callSendAPI(sender_psid, response);
             obj[sender_psid] = undefined;
           } catch (e) {
+            console.log(e);
             response = {
               text: `Something doesn't seems right.`,
             };
@@ -65,13 +84,13 @@ async function handleMessage(
         };
         callSendAPI(sender_psid, response);
       }
+
       return;
     } else {
       response = {
         text: `That's Interesting 🤯 . You are eligible for a NFT token, Congratulations!!. Please send me your public wallet address to claim your award.\naddress <Your_Public_Key>`,
       };
       obj[sender_psid] = {text: received_message.text};
-
       // Send the response message
       callSendAPI(sender_psid, response);
       return;

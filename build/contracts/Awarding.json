@@ -560,20 +560,14 @@
   "ast": {
     "absolutePath": "/home/rachit/Projects/gui-webview/contracts/Awarding.sol",
     "exportedSymbols": {
-      "Awarding": [
-        222
-      ]
+      "Awarding": [222]
     },
     "id": 223,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 1,
-        "literals": [
-          "solidity",
-          "0.6",
-          ".2"
-        ],
+        "literals": ["solidity", "0.6", ".2"],
         "nodeType": "PragmaDirective",
         "src": "36:22:0"
       },
@@ -610,29 +604,12 @@
             "src": "254:6:0"
           }
         ],
-        "contractDependencies": [
-          286,
-          339,
-          349,
-          1455,
-          1558,
-          1585,
-          1608
-        ],
+        "contractDependencies": [286, 339, 349, 1455, 1558, 1585, 1608],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
         "id": 222,
-        "linearizedBaseContracts": [
-          222,
-          1455,
-          1585,
-          1608,
-          1558,
-          339,
-          349,
-          286
-        ],
+        "linearizedBaseContracts": [222, 1455, 1585, 1608, 1558, 339, 349, 286],
         "name": "Awarding",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -1271,10 +1248,7 @@
                       "id": 49,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "707:7:0",
                       "typeDescriptions": {
@@ -1330,9 +1304,7 @@
               "src": "899:258:0",
               "statements": [
                 {
-                  "assignments": [
-                    69
-                  ],
+                  "assignments": [69],
                   "declarations": [
                     {
                       "constant": false,
@@ -2035,10 +2007,7 @@
                       "id": 114,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "1324:7:0",
                       "typeDescriptions": {
@@ -2158,10 +2127,7 @@
                       "id": 125,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "1392:7:0",
                       "typeDescriptions": {
@@ -2245,9 +2211,7 @@
                     "src": "1574:124:0",
                     "statements": [
                       {
-                        "assignments": [
-                          147
-                        ],
+                        "assignments": [147],
                         "declarations": [
                           {
                             "constant": false,
@@ -2443,9 +2407,7 @@
                     "src": "1463:105:0",
                     "statements": [
                       {
-                        "assignments": [
-                          137
-                        ],
+                        "assignments": [137],
                         "declarations": [
                           {
                             "constant": false,
@@ -2735,9 +2697,7 @@
               "src": "1846:184:0",
               "statements": [
                 {
-                  "assignments": [
-                    174
-                  ],
+                  "assignments": [174],
                   "declarations": [
                     {
                       "constant": false,
@@ -3456,20 +3416,14 @@
   "legacyAST": {
     "absolutePath": "/home/rachit/Projects/gui-webview/contracts/Awarding.sol",
     "exportedSymbols": {
-      "Awarding": [
-        222
-      ]
+      "Awarding": [222]
     },
     "id": 223,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 1,
-        "literals": [
-          "solidity",
-          "0.6",
-          ".2"
-        ],
+        "literals": ["solidity", "0.6", ".2"],
         "nodeType": "PragmaDirective",
         "src": "36:22:0"
       },
@@ -3506,29 +3460,12 @@
             "src": "254:6:0"
           }
         ],
-        "contractDependencies": [
-          286,
-          339,
-          349,
-          1455,
-          1558,
-          1585,
-          1608
-        ],
+        "contractDependencies": [286, 339, 349, 1455, 1558, 1585, 1608],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
         "id": 222,
-        "linearizedBaseContracts": [
-          222,
-          1455,
-          1585,
-          1608,
-          1558,
-          339,
-          349,
-          286
-        ],
+        "linearizedBaseContracts": [222, 1455, 1585, 1608, 1558, 339, 349, 286],
         "name": "Awarding",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -4167,10 +4104,7 @@
                       "id": 49,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "707:7:0",
                       "typeDescriptions": {
@@ -4226,9 +4160,7 @@
               "src": "899:258:0",
               "statements": [
                 {
-                  "assignments": [
-                    69
-                  ],
+                  "assignments": [69],
                   "declarations": [
                     {
                       "constant": false,
@@ -4931,10 +4863,7 @@
                       "id": 114,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "1324:7:0",
                       "typeDescriptions": {
@@ -5054,10 +4983,7 @@
                       "id": 125,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "1392:7:0",
                       "typeDescriptions": {
@@ -5141,9 +5067,7 @@
                     "src": "1574:124:0",
                     "statements": [
                       {
-                        "assignments": [
-                          147
-                        ],
+                        "assignments": [147],
                         "declarations": [
                           {
                             "constant": false,
@@ -5339,9 +5263,7 @@
                     "src": "1463:105:0",
                     "statements": [
                       {
-                        "assignments": [
-                          137
-                        ],
+                        "assignments": [137],
                         "declarations": [
                           {
                             "constant": false,
@@ -5631,9 +5553,7 @@
               "src": "1846:184:0",
               "statements": [
                 {
-                  "assignments": [
-                    174
-                  ],
+                  "assignments": [174],
                   "declarations": [
                     {
                       "constant": false,
@@ -6477,7 +6397,7 @@
         }
       },
       "links": {},
-      "address": "0x80A8dB17572ceFE024b4802B462a9B4257230C91",
+      "address": "0x463F1b2BC9423b8bc25A59cCe8Ba56E51eD65F70",
       "transactionHash": "0x4596d293a76cc62800732e90c7f5f165beb313c1bd226ff515458b32d855d1cf"
     }
   },
