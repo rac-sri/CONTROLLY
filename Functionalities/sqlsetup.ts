@@ -1,13 +1,14 @@
 const sqlite3 = require("sqlite3");
-const {open} = require("sqlite");
+// const {open} = require("sqlite");
+var db = new sqlite3.Database("controlly");
 
 sqlite3.verbose();
-
-const db = open({
-  filename: "/tmp/database.db",
-  driver: sqlite3.cached.Database,
+db.serialize(() => {
+  try {
+    db.run("CREATE TABLE IF NOT EXISTS cont (TEXT VARCHAR(1000) NOT NULL)");
+  } catch (e) {
+    console.log(e);
+  }
 });
-
-db.then(async (res) => await res.exec("CREATE TABLE tbl (col TEXT)"));
 
 export default db;
