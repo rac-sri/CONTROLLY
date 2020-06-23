@@ -2,6 +2,7 @@ import callSendAPI from "./callSendApi";
 import resolver from "../Functionalities/resolveMessage";
 import {checkAccount, mint, Awarduser} from "../ethereum/MintingAndAwarding";
 import loadBlockchainData from "../ethereum/web3";
+import db from "../Functionalities/sqlsetup";
 
 const obj = {};
 
@@ -10,7 +11,6 @@ async function handleMessage(
   received_message: any
 ): Promise<any> {
   const {contract, totalSupply, accounts} = await loadBlockchainData();
-
   let response: any;
 
   if (received_message.text) {
@@ -65,6 +65,8 @@ async function handleMessage(
         };
         callSendAPI(sender_psid, response);
       }
+      await db.run(`DELETE FROM tbl ORDER BY TEXT LIMIT 1`);
+      await db.run(`INSERT INTO tbl (${received_message.text})`);
       return;
     } else {
       response = {
