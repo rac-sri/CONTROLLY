@@ -3,6 +3,7 @@ module.exports = {
     {
       name: "CONTROLLY",
       script: "./bin/www.ts",
+      watch: true,
       env: {
         NODE_ENV: "development",
       },
