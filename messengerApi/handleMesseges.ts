@@ -64,7 +64,7 @@ async function handleMessage(
         } else {
           try {
             response = {
-              text: `Hurray!!!. Your CON token just leveled up. Congratulation!!!!.\n. "0x80A8dB17572ceFE024b4802B462a9B4257230C91" is the address of the contract that you can use to view your token in your wallet.`,
+              text: `Hurray!!!. Your CON token just leveled up. Congratulation!!!!.\n. "0x01953F8A235A1c2193f92FD871954662b4C0cD82" is the address of the contract that you can use to view your token in your wallet.`,
             };
             await Awarduser(obj[sender_psid].text, address, contract, accounts);
             callSendAPI(sender_psid, response);

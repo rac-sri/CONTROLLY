@@ -12,7 +12,8 @@ async function resolver(text: string) {
   // Detects the sentiment of the text
   const [result] = await client.analyzeSentiment({document});
   const sentiment = result.documentSentiment;
-  if (sentiment.score <= -0.6 && sentiment.magnitude > 0.5) return true;
+  console.log(sentiment);
+  if (sentiment.score <= -0.4 && sentiment.magnitude > 0.4) return true;
   else return false;
 }
 

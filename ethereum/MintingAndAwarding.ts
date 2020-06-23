@@ -1,5 +1,3 @@
-import {add} from "winston";
-
 let tokenCount: number;
 
 export const checkAccount = async (
@@ -24,18 +22,18 @@ export const mint = async (
     });
 };
 
-export const Awarduser = (
+export const Awarduser = async (
   message: string,
   address: string,
   contract: any,
   accounts
 ): Promise<any> => {
   console.log("ok trying aawardung");
+  console.log(contract.methods);
   return contract.methods
     .balanceOf(address)
     .call()
     .then((res: number) => {
-      console.log("am i at stage one?");
       tokenCount = res;
       for (let i = 0; i < tokenCount; i++) {
         contract.methods
@@ -43,11 +41,19 @@ export const Awarduser = (
           .call()
           .then((res) => {
             console.log(
-              "stage 3 is here " + i + " " + address + " " + message + " " + res
+              "stage 3 is here " +
+                i +
+                " " +
+                address +
+                " " +
+                message +
+                " " +
+                res +
+                accounts[0]
             );
             contract.methods
               .AwardUser(address, message, res)
-              .send({from: accounts[0], gas: 3000000})
+              .send({from: accounts[0]})
               .then((reciept) => {
                 console.log("am i at stage two?");
 
