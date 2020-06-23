@@ -11,7 +11,7 @@
     "tsc": "tsc",
     "test": "mocha",
     "expose": "ngrok http 4000",
-    "pm2": "NODE_ENV=production pm2 start ts-node ./bin/www.ts"
+    "pm2": "NODE_ENV=production pm2 start ts-node ./bin/www.ts --watch"
   },
   "repository": {
     "type": "git",

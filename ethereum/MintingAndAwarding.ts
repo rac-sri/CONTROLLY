@@ -16,7 +16,7 @@ export const mint = async (
 ): Promise<any> => {
   return contract.methods
     .AwardUser(address, message, -1)
-    .send({from: accounts[0]})
+    .send({ from: accounts[0] })
     .once("reciept", (res: any) => {
       return res;
     });
@@ -29,7 +29,6 @@ export const Awarduser = async (
   accounts
 ): Promise<any> => {
   console.log("ok trying aawardung");
-  console.log(contract.methods);
   return contract.methods
     .balanceOf(address)
     .call()
@@ -42,18 +41,18 @@ export const Awarduser = async (
           .then((res) => {
             console.log(
               "stage 3 is here " +
-                i +
-                " " +
-                address +
-                " " +
-                message +
-                " " +
-                res +
-                accounts[0]
+              i +
+              " " +
+              address +
+              " " +
+              message +
+              " " +
+              res +
+              accounts[0]
             );
             contract.methods
               .AwardUser(address, message, res)
-              .send({from: accounts[0]})
+              .send({ from: accounts[0] })
               .then((reciept) => {
                 console.log("am i at stage two?");
 

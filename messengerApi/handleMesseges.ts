@@ -14,7 +14,7 @@ async function handleMessage(
   sender_psid: string,
   received_message: any
 ): Promise<any> {
-  const {contract, totalSupply, accounts} = await loadBlockchainData();
+  const { contract, totalSupply, accounts } = await loadBlockchainData();
   let response: any;
 
   const parsingStage1 = received_message.text
@@ -22,11 +22,11 @@ async function handleMessage(
     .toLowerCase()
     .startsWith("check");
   if (parsingStage1) {
-    const message = received_message.text.trim().substr(5);
+    const message = received_message.text.trim().substr(5).trim();
     const result = await FindText(message, contract);
     if (result)
-      callSendAPI(sender_psid, {text: "Yes, this is potentially dangerous"});
-    else callSendAPI(sender_psid, {text: "Nope, this is not known to me."});
+      callSendAPI(sender_psid, { text: "Yes, this is potentially dangerous" });
+    else callSendAPI(sender_psid, { text: "Nope, this is not known to me." });
     return;
   }
 
@@ -34,7 +34,7 @@ async function handleMessage(
     const resolved: Boolean = await resolver(received_message.text);
     let value = obj[sender_psid];
     if (!resolved && value == undefined) {
-      response = {text: `Sorry doesn't seems to be a problemtic text.`};
+      response = { text: `Sorry doesn't seems to be a problemtic text.` };
       callSendAPI(sender_psid, response);
       return;
     }
@@ -90,7 +90,7 @@ async function handleMessage(
       response = {
         text: `That's Interesting 🤯 . You are eligible for a NFT token, Congratulations!!. Please send me your public wallet address to claim your award.\naddress <Your_Public_Key>`,
       };
-      obj[sender_psid] = {text: received_message.text};
+      obj[sender_psid] = { text: received_message.text };
       // Send the response message
       callSendAPI(sender_psid, response);
       return;
