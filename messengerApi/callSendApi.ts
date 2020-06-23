@@ -10,7 +10,7 @@ function callSendAPI(sender_psid, response) {
     message: response,
   };
 
-  console.log(response + " is to be send");
+  console.log(response.text + " is to be send");
   // Send the HTTP request to the Messenger Platform
   request(
     {

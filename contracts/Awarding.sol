@@ -50,6 +50,8 @@ contract Awarding is ERC721 {
         int256 tokenId
     ) public ownership returns (string memory result) {
         require(tokenId < int256(Token.length), "Invalid TokenId");
+        require(!Text[text], "Text already exists");
+
         if (tokenId < 0) {
             string memory returnValue = Mint(reciever, text);
             return returnValue;

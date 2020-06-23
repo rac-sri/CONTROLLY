@@ -7,7 +7,6 @@ export const checkAccount = async (
   contract: any
 ): Promise<any> => {
   const exist = await contract.methods.balanceOf(address).call();
-  console.log(typeof exist);
   return exist === "0" ? false : true;
 };
 

@@ -15,9 +15,7 @@ async function handleMessage(
 
   if (received_message.text) {
     const resolved: Boolean = await resolver(received_message.text);
-
     let value = obj[sender_psid];
-
     if (!resolved && value == undefined) {
       response = {text: `Sorry doesn't seems to be a problemtic text.`};
       callSendAPI(sender_psid, response);
@@ -32,29 +30,53 @@ async function handleMessage(
         const accountAvailaible = await checkAccount(address, contract);
 
         if (!accountAvailaible) {
-          response = {
-            text: `Hurray!!!. You just got awarded with a "CON" coin.\n"0x892da0bAec9263D47B46F550bAf5EC54cBF757ad" is the address of the contract that you can use to view your token in your wallet.`,
-          };
-          await mint(obj[sender_psid].text, address, contract, accounts);
-          callSendAPI(sender_psid, response);
+          try {
+            await mint(obj[sender_psid].text, address, contract, accounts);
+            response = {
+              text: `Hurray!!!. You just got awarded with a "CON" coin.\n"0x892da0bAec9263D47B46F550bAf5EC54cBF757ad" is the address of the contract that you can use to view your token in your wallet.`,
+            };
+            callSendAPI(sender_psid, response);
+            obj[sender_psid] = undefined;
+          } catch (e) {
+            response = {
+              text: `Something doesn't seems right.`,
+            };
+            callSendAPI(sender_psid, response);
+          }
         } else {
-          response = {
-            text: `Hurray!!!. Your CON token just leveled up. Congratulation!!!!.\n. "0x892da0bAec9263D47B46F550bAf5EC54cBF757ad" is the address of the contract that you can use to view your token in your wallet.`,
-          };
-          await Awarduser(response, address, contract, accounts);
-          callSendAPI(sender_psid, response);
+          try {
+            response = {
+              text: `Hurray!!!. Your CON token just leveled up. Congratulation!!!!.\n. "0x80A8dB17572ceFE024b4802B462a9B4257230C91" is the address of the contract that you can use to view your token in your wallet.`,
+            };
+            await Awarduser(response, address, contract, accounts);
+            callSendAPI(sender_psid, response);
+            obj[sender_psid] = undefined;
+          } catch (e) {
+            response = {
+              text: `Something doesn't seems right.`,
+            };
+            callSendAPI(sender_psid, response);
+          }
         }
+      } else {
+        response = {
+          text:
+            "Oops!!. Something wasn't write. Are you sure you send me the address in the correct format??",
+        };
+        callSendAPI(sender_psid, response);
       }
+      return;
     } else {
       response = {
         text: `That's Interesting 🤯 . You are eligible for a NFT token, Congratulations!!. Please send me your public wallet address to claim your award.\naddress <Your_Public_Key>`,
       };
       obj[sender_psid] = {text: received_message.text};
+
+      // Send the response message
+      callSendAPI(sender_psid, response);
+      return;
     }
   }
-
-  // Send the response message
-  callSendAPI(sender_psid, response);
 }
 
 export default handleMessage;
