@@ -16,11 +16,6 @@ The bot awards the person coming to it with a potential hatred speech with an NF
 3. Run `nodemon`
 4. Expose the port using `npm run expose`
 
-Note:
-
-1. Before making a kubernetes build using kompose.
-2. Docker Container not working due to problem with truffle setup inside them.
-
 ## Tech Stack
 
 1. NodeJS
