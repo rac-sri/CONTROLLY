@@ -11,7 +11,7 @@ The bot awards the person coming to it with a potential hatred speech with an NF
 
 ## Installation
 
-1. Setup vm instances and follw the guidlines on GCP NLP sentimental analysis and setup the require env variables.
+1. Setup vm instances and follw the [guidlines](https://cloud.google.com/natural-language/docs/setup) on GCP NLP sentimental analysis and setup the require env variables.
 2. Create a facebook page, setup webhooks, and add the page access token to the env variables.
 3. Run `nodemon`
 4. Expose the port using `npm run expose`
@@ -34,13 +34,7 @@ Note:
 ## Demo
 
 [Rinkeby Test Network](https://m.me/106119301137974)
-
-## Video
-
-<video width="320" height="240" controls>
-  <source src="https://youtu.be/0Jk45bH-DlQ" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+[Video](https://youtu.be/0Jk45bH-DlQ)
 
 ## Challenges I ran into
 
