@@ -49,5 +49,10 @@ The few stages I got stuck were:
 2. Adding more interaction features if needed.
 
 ## Screenshots
-<img src="https://i.imgur.com/9y0DbJu.jpg" style="width:20%"/><img src="https://i.imgur.com/tW0jGjT.jpg" style="width:20%"/><img src="https://i.imgur.com/9LaHrdn.jpg" style="width:20%"/>
+<p float="left">
+  <img src="https://i.imgur.com/9y0DbJu.jpg" width="100" />
+  <img src="https://i.imgur.com/tW0jGjT.jpg" width="100" /> 
+  <img src="https://i.imgur.com/9LaHrdn.jpg" width="100" />
+</p>
+
 
