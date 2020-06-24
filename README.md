@@ -25,7 +25,7 @@ Note:
 7. Google Cloud NLP models(sentimental analysis)
 
 ## Demo
-[Rinkeby Test Network](m.me/106119301137974)
+[Rinkeby Test Network](https://m.me/106119301137974)
 
 ## Challenges I ran into
 The few stages I got stuck were:
