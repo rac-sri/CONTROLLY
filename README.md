@@ -50,9 +50,9 @@ The few stages I got stuck were:
 
 ## Screenshots
 <p float="left">
-  <img src="https://i.imgur.com/9y0DbJu.jpg" width="100" />
-  <img src="https://i.imgur.com/tW0jGjT.jpg" width="100" /> 
-  <img src="https://i.imgur.com/9LaHrdn.jpg" width="100" />
+  <img src="https://i.imgur.com/9y0DbJu.jpg" width="250" />
+  <img src="https://i.imgur.com/tW0jGjT.jpg" width="250" /> 
+  <img src="https://i.imgur.com/9LaHrdn.jpg" width="250" />
 </p>
 
 
