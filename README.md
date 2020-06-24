@@ -1,3 +1,5 @@
+<img src="https://i.imgur.com/vVUyrX7.jpg" />
+
 ## Inspiration
 This project was inspired by the latest tragedy of the boys' locker room that happened in India. There was the spread of this information about a boys-only group in which the participants were body-shaming and planning hideous crimes like rape. There were two separate cases, one on Instagram and on Snapchat. The police proved that the Snapchat case was fake. But before even anything was proven, people started to spread hate speeches against the parties involved. This eventually resulted in one of the involved party to commit suicide.
 
