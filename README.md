@@ -31,27 +31,6 @@ The bot awards the person coming to it with a potential hatred speech with an NF
 [Rinkeby Test Network](https://m.me/106119301137974)
 [Video](https://youtu.be/0Jk45bH-DlQ)
 
-## Challenges I ran into
-
-The few stages I got stuck were:
-
-1. Machine Learning Model integration in my bot.
-2. Designing the architecture for a bot to tackle messages in a sequential manner.
-3. **Why would someone use my bot?**. The solution I came up with was NFT tokens. If people get rewarded for using a bot, then they will use it!!. So by giving them NFT token and leveling their tokens with time, this not only attracts customers, but also results in more database regarding such negatively influential texts and posts.
-
-## Accomplishments that I'm proud of
-
-1. Proper working backend design with proper tests for the smart contract.
-2. Work Flow design of the chatbot.
-3. Learning about several cloud services related to ML.
-4. Quite a good understanding of interacting with ERC721 smart contracts.
-
-## What I learned
-
-1. Cloud features related to ML, mainly NLP.
-2. Created two chatbots for following the tutorial purposes, resulting in me understanding not only making an interactive chatbot, but also a web view based bot too.
-3. Running a typescript project using PM2.
-
 ## What's next for CONTROLLY
 
 1. Integration of a Text Semantic Similarity Model for better record maintenance.
